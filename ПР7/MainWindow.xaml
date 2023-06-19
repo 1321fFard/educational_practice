@@ -7,37 +7,68 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        <Style TargetType="Button">
+        <Style TargetType="Button" x:Key="DocButton">
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Trigger.Setters>
                         <Setter Property="FontSize" Value="20" />
+                        <Setter Property="FontFamily" Value="Script MT Bold" />
                     </Trigger.Setters>
                 </Trigger>
             </Style.Triggers>
+            
+            <Setter Property="Background" Value="Red" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Padding" Value="15" />
+            <Setter Property="Width" Value="125" />
+            <Setter Property="Margin" Value="0,0,25,0" />
         </Style>
-        
-            <Style TargetType="Button" x:Key="DocButton">
-                <Setter Property="Background" Value="Cyan" />
-                <Setter Property="Foreground" Value="Black" />
-                <Setter Property="FontFamily" Value="Verdana" />
-                <Setter Property="Padding" Value="15" />
-                <Setter Property="Width" Value="125" />
-                <Setter Property="Margin" Value="0,0,25,0" />
-            </Style>
-
-
     </Window.Resources>
 
+    
     <Grid >
 
-        <StackPanel Margin="0,0,363,0" Orientation="Horizontal" VerticalAlignment="Top">
-            <Button Style="{StaticResource ResourceKey=DocButton}">Открыть</Button>
-            <Button Style="{StaticResource ResourceKey=DocButton}">Очистить</Button>
-            <Button Style="{StaticResource ResourceKey=DocButton}">Закрыть</Button>
-        </StackPanel> 
+        <StackPanel Margin="0,0,342,0" Orientation="Horizontal" VerticalAlignment="Top" Height="61">
+            <Button Click="But1_Click" x:Name="But1" Style="{StaticResource ResourceKey=DocButton}">Узнать</Button>
+            <Button x:Name="But2" Style="{StaticResource ResourceKey=DocButton}">Очистить</Button>
+            <Button Click="But3_Click" x:Name="But3" Style="{StaticResource ResourceKey=DocButton}">Закрыть</Button>
+        </StackPanel>
+
+
+        <StackPanel Margin="400,141,24,-141" >
+            <Label HorizontalAlignment="Center" Content="Замена внешности текста" />
+            <ComboBox x:Name="ComBox1" SelectionChanged="ComBox1_SelectionChanged">
+                <TextBlock>Дефолт</TextBlock>
+                <TextBlock>Аква</TextBlock>
+                <TextBlock>Градиент</TextBlock>
+            </ComboBox>
+        </StackPanel>
+
         
-        
+        <TextBox x:Name="textBox1" Margin="31,141,409,206" FontSize="20" Text="ТЕКСТ 1" TextAlignment="Center" 
+                 FontWeight="Bold" TextWrapping="Wrap">
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFDAFF00" Offset="0"/>
+                    <GradientStop Color="Red" Offset="1"/>
+                    <GradientStop Color="#FFFFAF00" Offset="0.552"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <TextBox x:Name="textBox2" Margin="31,271,409,76" FontSize="20" Text="ТЕКСТ 2" TextAlignment="Center" 
+            FontWeight="Bold" TextWrapping="Wrap">
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFDAFF00" Offset="0"/>
+                    <GradientStop Color="Red" Offset="1"/>
+                    <GradientStop Color="#FFFFAF00" Offset="0.552"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+
+
+
+
 
 
     </Grid>
